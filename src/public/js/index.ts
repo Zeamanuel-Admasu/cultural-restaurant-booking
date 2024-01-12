@@ -2,7 +2,7 @@ var id: string = "";
 ContainerFunc();
 
 
-async function ContainerFunc() {
+async function ContainerFunc():Promise<void> {
     await fetch("/auth/user", {
         method: "GET",
     }).then(response => response.json())
@@ -12,13 +12,13 @@ async function ContainerFunc() {
             }
 
         })
-    const currentDate = new Date();
+    const currentDate: Date = new Date();
 
-    const day = currentDate.getDate();
-    const month = currentDate.getMonth() + 1;
-    const year = currentDate.getFullYear();
+    const day:number = currentDate.getDate();
+    const month:number = currentDate.getMonth() + 1;
+    const year:number = currentDate.getFullYear();
 
-    const formattedDate = `${year}-${month < 10 ? '0' + month : month}-${day < 10 ? '0' + day : day}`;
+    const formattedDate:string = `${year}-${month < 10 ? '0' + month : month}-${day < 10 ? '0' + day : day}`;
     document.getElementById("date").setAttribute("min", formattedDate);
     if (id) {
         fetch("/reserve/userreservations", {
@@ -36,7 +36,7 @@ async function ContainerFunc() {
                 let deleteButtons = Array.from(document.getElementsByClassName("deleteButton"));
                 deleteButtons.forEach(<HTMLInputElement>(btn) => {
 
-                    btn.addEventListener("click", (evt) => {
+                    btn.addEventListener("click", (evt:Event) => {
                         evt.preventDefault()
                         let str = btn.getAttribute('sometime')
                         fetch(`/reserve/delete${btn.value}&${str}`, {
@@ -51,23 +51,23 @@ async function ContainerFunc() {
         function createHTMLTable(arr) {
             let parent = document.getElementById("table-body")
             arr.forEach((elt: { tableNumber: string; Type: string; time: string; date: string; Number_of_people: string; }) => {
-                let row = document.createElement("tr");
-                let col = document.createElement("td");
-                let content = document.createTextNode(elt.tableNumber);
+                let row:HTMLTableRowElement = document.createElement("tr");
+                let col:HTMLTableCellElement = document.createElement("td");
+                let content:Text = document.createTextNode(elt.tableNumber);
                 col.appendChild(content);
-                let col2 = document.createElement("td");
-                let content2 = document.createTextNode(elt.Type);
+                let col2:HTMLTableCellElement = document.createElement("td");
+                let content2:Text = document.createTextNode(elt.Type);
                 col2.appendChild(content2);
-                let col3 = document.createElement("td");
-                let content3 = document.createTextNode(elt.time);
+                let col3:HTMLTableCellElement = document.createElement("td");
+                let content3:Text = document.createTextNode(elt.time);
                 col3.appendChild(content3);
 
-                let col4 = document.createElement("td");
-                let content4 = document.createTextNode(elt.date);
+                let col4:HTMLTableCellElement = document.createElement("td");
+                let content4:Text = document.createTextNode(elt.date);
                 col4.appendChild(content4);
 
-                let col5 = document.createElement("td");
-                let content5 = document.createTextNode(elt.Number_of_people);
+                let col5:HTMLTableCellElement = document.createElement("td");
+                let content5:Text = document.createTextNode(elt.Number_of_people);
                 col5.appendChild(content5);
                 row.appendChild(col)
                 row.appendChild(col4)
@@ -76,7 +76,7 @@ async function ContainerFunc() {
 
                 
                 row.appendChild(col5)
-                let button = document.createElement("button");
+                let button:HTMLButtonElement = document.createElement("button");
                 button.classList.add("deleteButton");
                 let content6 = document.createTextNode("Cancel");
                 button.setAttribute("value", elt.tableNumber);
@@ -96,7 +96,7 @@ let time = <HTMLInputElement>document.getElementById("time");
 let typeH = <HTMLInputElement>document.getElementById("type");
 let seatsH = <HTMLInputElement>document.getElementById("seats");
 
-formH.addEventListener("submit", (e) => {
+formH.addEventListener("submit", (e:Event) => {
     e.preventDefault()
     if (!id) {
         let elt = document.getElementById("error");
@@ -127,7 +127,7 @@ formH.addEventListener("submit", (e) => {
                         document.getElementById("error").style.display = "none"
 
                     }
-                    let elt = document.getElementById("success")
+                    let elt:HTMLElement = document.getElementById("success")
                     elt.style.display = "flex";
 
                     document.getElementById('successHeader').innerHTML = data.message;
@@ -137,7 +137,7 @@ formH.addEventListener("submit", (e) => {
                         document.getElementById("success").style.display = "none"
 
                     }
-                    let elt = document.getElementById("error");
+                    let elt:HTMLElement = document.getElementById("error");
                     elt.style.display = "flex";
 
                     document.getElementById('errorHeader').innerHTML = data.message;
