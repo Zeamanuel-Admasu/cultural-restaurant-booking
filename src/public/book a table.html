@@ -1,0 +1,97 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traditional Restaurant Website</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/f4c1e5f645.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <section class="sub-header">
+        <nav>
+            <a href="" class="logo">Traditional <span>Booking</span></a>
+            <div class="nav-links">
+                <i class="fa fa-solid fa-circle-xmark" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li ><a href="/book">Book a table</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                    <li><a href="/signup">Sign up</a></li>
+
+                </ul>
+            </div>
+            <i class="fa fa-solid fa-bars" onclick="showMenu()"></i>
+
+        </nav>
+
+        <h1>Book Your <span>Table</span> Here</h1>
+
+    </section>
+
+    <div class="form">
+        <form id="reserveForm">
+
+            <label for="seats">How many people?</label>
+            <input type="number" id="seats" name="seats" min="1" max="20">
+            <label for="type">Type</label>
+            <select id="type">
+                <option value="Business">Business</option>
+                <option value="Non-Business">Non-Business</option>
+              </select>
+              
+    
+            <label for="date">Select Date:</label>
+            <input type="date" id="date" name="date" required>
+            <label for="time">Time</label>
+            <input type="time" id="time" name="time">
+    
+            <button type="submit" class="hero-btn submit-btn">Book Table</button>
+        </form>
+        <div id ="success" style="display: none;">
+            <h1 id="successHeader"></h1>
+        </div>
+        <div id="error" style="display: none;">
+            <h1 id="errorHeader"></h1>
+
+        </div>
+    </div>
+    <h1 style="color: black;">Your Reservations</h1>
+    <table id="table" style="background-color: black;"> 
+        <tbody id="table-body">
+            <tr>
+                <th>Table Number</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Type</th>
+                <th>Number of people</th>
+
+            </tr>
+
+        </tbody>
+
+
+    </table> 
+
+
+
+    <!--footer section-->
+    <section class="footer">
+        <h4>About Us</h4>
+        <p>At Traditional Booking, we are dedicated to revolutionizing the dining experience by seamlessly blending technology with the rich tapestry of Ethiopian culture. <br/>As a pioneering table reservation system, we connect patrons with the essence of Ethiopian hospitality, offering an easy and culturally immersive way to reserve tables.<br/> Our mission is to provide a platform that celebrates the vibrant flavors and traditions of Ethiopia, ensuring every dining experience is as special as the culture it represents. </p>
+        <div class="icons">
+            <i class="fa fa-facebook"></i>
+            <i class="fa fa-instagram"></i>
+            <i class="fa fa-github"></i>
+            <i class="fa fa-linkedin"></i>
+            <i class="fa fa-telegram"></i>
+        </div>
+        <p>&copy;All rights Reserved. AAiT, 2024</p>
+    </section>  
+    <script src="script.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>
