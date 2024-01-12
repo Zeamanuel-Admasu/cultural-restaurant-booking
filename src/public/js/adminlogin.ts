@@ -7,12 +7,12 @@ fetch("/auth/adminInfo",{
       },
 })
 
-let formA = <HTMLFormElement>document.getElementById("formA");
-const formData = new FormData(formA);
-const username = <HTMLInputElement>document.getElementById("nameA");
-const password = <HTMLInputElement>document.getElementById('passwordA');
+let formA:HTMLFormElement = <HTMLFormElement>document.getElementById("formA");
+const formData:FormData = new FormData(formA);
+const username:HTMLInputElement = <HTMLInputElement>document.getElementById("nameA");
+const password:HTMLInputElement = <HTMLInputElement>document.getElementById('passwordA');
 
-formA.addEventListener("submit", (e) => {
+formA.addEventListener("submit", (e:Event) => {
     e.preventDefault()
     fetch("/auth/admin",{
         method: "POST",
@@ -26,7 +26,7 @@ formA.addEventListener("submit", (e) => {
     }).then(res => res.json())
       .then(data => {
         if (data.error){
-            let elt = document.getElementById("error");
+            let elt:HTMLElement = document.getElementById("error");
             elt.style.display = "flex";
 
             document.getElementById('errorHeader').innerHTML = data.message;
