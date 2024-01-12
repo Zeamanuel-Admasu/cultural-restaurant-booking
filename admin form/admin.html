@@ -1,0 +1,180 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traditional Restaurant Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/f4c1e5f645.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <section class="header">
+        <nav>
+            <a href="" class="logo">Traditional <span>Booking</span></a>
+            <div class="nav-links">
+                <i class="fa fa-solid fa-circle-xmark" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="book a table.html">Book a table</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="signup.html">Sign up</a></li>
+
+                </ul>
+            </div>
+            <i class="fa fa-solid fa-bars" onclick="showMenu()"></i>
+
+        </nav>
+        <section class="admin-form">
+            <form id="form-7"> 
+                <h2>Reservations By Date</h2> 
+                <input type="date" name="dateInp" id="dateInp"> 
+                <button type="submit" class="hero-btn">Search</button> 
+            </form> 
+
+            <section class="today-resrvations"> 
+            <table id="table"> 
+                <thead>
+                    <tr> 
+                        <th>Table Number</th> 
+                        <th>Date</th> 
+                        <th>Time</th> 
+                        <th>Type</th> 
+                        <th>Number of people</th> 
+                    </tr>
+                </thead>
+                <tbody id="table-body">    
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    
+        
+                </tbody> 
+        
+        
+            </table> 
+        
+        
+        </section> 
+        
+        <h1>Add table</h1> 
+        <form id="form-1"> 
+            <label for="tableNUM">Table number</label> 
+            <input type="number" name="tableNUM" id="tableNUM"> 
+            <label for="seats">Number of Seats</label> 
+            <input type="number" name="seats" id="seats"> 
+            <label for="floor">Floor number</label> 
+            <input type="number" name="floor" id="floor"> 
+            <label for="type">Type</label> 
+            <input type="text" name="type" id="type"> 
+            <button type="submit" class="hero-btn">Add</button> 
+        </form> 
+        
+        <h1>Get all Tables</h1> 
+        
+        <form id="form-2" action="/tables"> 
+            <button type="submit" class="hero-btn">Get all tables</button> 
+        </form> 
+        
+        <h1>Get a single table</h1> 
+        
+        <form id="form-4"> 
+            <label for="tabNum">Table Number</label> 
+            <input type="number" name="" id="tabNum"> 
+        
+            <button type="submit" class="hero-btn">Get table</button> 
+        </form> 
+        
+        
+        <h1>Update Tables</h1> 
+        
+        <form id="form-3"> 
+            <label for="tableNum">Table number</label> 
+            <input type="number" name="tableNum" id="tableNum"> 
+            <label for="seats">Number of Seats</label> 
+            <input type="number" name="updseats" id="updseats "> 
+            <label for="floor">Floor number</label> 
+            <input type="number" name="updfloor" id="updfloor "> 
+            <label for="type">Type</label> 
+            <input type="text" name="updtype" id="updtype "> 
+            <button type="submit" class="hero-btn">Add</button> 
+        </form> 
+        <h1>Delete table</h1> 
+        <form id="form-5"> 
+            <label for="deleteNum">Table Number to delete</label> 
+            <input type="number" id="deleteNum" name="deleteNum"> 
+            <button type="submit" class="hero-btn">Delete</button> 
+        </form>
+    </section>
+
+    <!--footer section-->
+    <section class="footer">
+        <h4>About Us</h4>
+        <p>At Traditional Booking, we are dedicated to revolutionizing the dining experience by seamlessly blending technology with the rich tapestry of Ethiopian culture. <br/>As a pioneering table reservation system, we connect patrons with the essence of Ethiopian hospitality, offering an easy and culturally immersive way to reserve tables.<br/> Our mission is to provide a platform that celebrates the vibrant flavors and traditions of Ethiopia, ensuring every dining experience is as special as the culture it represents. </p>
+        <div class="icons">
+            <i class="fa fa-facebook"></i>
+            <i class="fa fa-instagram"></i>
+            <i class="fa fa-github"></i>
+            <i class="fa fa-linkedin"></i>
+            <i class="fa fa-telegram"></i>
+        </div>
+        <p>&copy;All rights Reserved. AAiT, 2024</p>
+    </section>
+    <script src="../script.js"></script>
+</body>
+</html>
