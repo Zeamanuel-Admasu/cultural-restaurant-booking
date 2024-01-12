@@ -44,27 +44,27 @@ function createHTMLTable(arr, date) {
         parent.removeChild(parent.lastChild);
     }
 
-    arr.forEach(elt => {
-        let row = document.createElement("tr");
-        let col = document.createElement("td");
-        let content = document.createTextNode(elt.tableNumber);
+    arr.forEach((elt: { tableNumber: string; date: string; time: string; Type: string; Number_of_people: string; }) => {
+        let row:HTMLTableRowElement = document.createElement("tr");
+        let col= document.createElement("td");
+        let content:Text = document.createTextNode(elt.tableNumber);
         col.appendChild(content);
         let col4 = document.createElement("td");
-        let content4 = document.createTextNode(elt.date);
+        let content4:Text = document.createTextNode(elt.date);
         col4.appendChild(content4);
 
-        let col3 = document.createElement("td");
-        let content3 = document.createTextNode(elt.time);
+        let col3:HTMLTableCellElement = document.createElement("td");
+        let content3:Text = document.createTextNode(elt.time);
         col3.appendChild(content3);
 
-        let col2 = document.createElement("td");
-        let content2 = document.createTextNode(elt.Type);
+        let col2:HTMLTableCellElement = document.createElement("td");
+        let content2:Text = document.createTextNode(elt.Type);
         col2.appendChild(content2);
 
   
 
-        let col5 = document.createElement("td");
-        let content5 = document.createTextNode(elt.Number_of_people);
+        let col5:HTMLTableCellElement = document.createElement("td");
+        let content5:Text = document.createTextNode(elt.Number_of_people);
         col5.appendChild(content5);
         row.appendChild(col)
         row.appendChild(col4)
@@ -77,7 +77,7 @@ function createHTMLTable(arr, date) {
         if (date === new Date().toDateString()) {
             let button = document.createElement("button");
             button.classList.add("deleteButton");
-            let content6 = document.createTextNode("Delete");
+            let content6:Text = document.createTextNode("Delete");
             button.setAttribute("value", elt.tableNumber);
             button.setAttribute("sometime", elt.time);
             button.setAttribute("type", "submit");
@@ -93,7 +93,7 @@ function createHTMLTable(arr, date) {
 }
 
 
-const form = document.getElementById("form-1");
+const form:HTMLElement = document.getElementById("form-1");
 const seats = <HTMLInputElement>document.getElementById("seats");
 const type = <HTMLInputElement>document.getElementById("type");
 const floor = <HTMLInputElement>document.getElementById("floor");
@@ -103,7 +103,7 @@ const tableNUM = <HTMLInputElement>document.getElementById("tableNUM");
 
 
 
-form.addEventListener("submit", (e) => {
+form.addEventListener("submit", (e:Event) => {
     e.preventDefault();
 
     fetch("/tables", {
@@ -125,9 +125,9 @@ form.addEventListener("submit", (e) => {
         })
 })
 
-let updForm = document.getElementById("form-3");
+let updForm:HTMLElement = document.getElementById("form-3");
 
-updForm.addEventListener("submit", (e) => {
+updForm.addEventListener("submit", (e:Event) => {
     e.preventDefault();
     fetch(`/tables/${tableNum.value}`, {
         method: "PATCH",
@@ -147,7 +147,7 @@ updForm.addEventListener("submit", (e) => {
                     document.getElementById("success2").style.display = "none"
 
                 }
-                let elt = document.getElementById("error2");
+                let elt:HTMLElement = document.getElementById("error2");
                 elt.style.display = "flex";
 
                 document.getElementById('errorHeader2').innerHTML = data.message;
@@ -165,11 +165,11 @@ updForm.addEventListener("submit", (e) => {
         });
 })
 
-let form4 = document.getElementById("form-4");
+let form4:HTMLElement = document.getElementById("form-4");
 let tabNum = <HTMLInputElement>document.getElementById("tabNum");
 
 
-form4.addEventListener("submit", (e) => {
+form4.addEventListener("submit", (e:Event) => {
     fetch(`/tables/${tabNum.value}`, {
         method: "GET",
     }).then(res => res.json())
@@ -177,9 +177,9 @@ form4.addEventListener("submit", (e) => {
             window.location.href = `/tables/${tabNum.value}`;
         });
 })
-let form5 = document.getElementById("form-5");
+let form5:HTMLElement = document.getElementById("form-5");
 let deleteNum = <HTMLInputElement>document.getElementById("deleteNum");
-form5.addEventListener("submit", (e) => {
+form5.addEventListener("submit", (e:Event) => {
     e.preventDefault();
     fetch(`/tables/${deleteNum.value}`, {
         method: "DELETE",
