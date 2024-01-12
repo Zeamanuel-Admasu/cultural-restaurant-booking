@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <form id="reserveForm">
+        <label for="seats">How many people?</label>
+        <input type="number" id="seats" name="seats" min="1" max="20">
+        <label for="date">Date</label>
+        <input type="date" id="date" name="date">
+        <label for="time">Time</label>
+        <input type="time" id="time" name="time">
+        <label for="type">Type</label>
+        <input type="text" name="type" id="type">
+        <button type="submit">submit</button>
+    </form>
+    <h1 id="sample" style="display: none;">Book a Reservation</h1>
+    <form action="/auth/logout" method="get">
+        <button id="logOutBtn" type="submit" style="display: none;">Log out</button>
+    </form>
+    <script>
+        var id = "";
+        ContainerFunc();
+        
+
+        async function ContainerFunc() {
+            await fetch("/auth/user", {
+                method: "GET",
+            }).then(response => response.json())
+                .then(data => {
+                    if (data.status === "success") {
+                        id = data.id;
+                        let elt = document.getElementById("sample").style.display = "block";
+                        let btn = document.getElementById("logOutBtn").style.display = "block";
+
+
+                    }
+
+                })
+            const currentDate = new Date();
+
+            const day = currentDate.getDate();
+            const month = currentDate.getMonth() + 1;
+            const year = currentDate.getFullYear();
+
+            const formattedDate = `${year}-${month < 10 ? '0' + month : month}-${day < 10 ? '0' + day : day}`;
+            document.getElementById("date").setAttribute("min", formattedDate);
+        }
+        let form = document.getElementById("reserveForm");
+        let date = document.getElementById("date");
+        let time = document.getElementById("time");
+        let type = document.getElementById("type");
+        let seats = document.getElementById("seats");
+
+        form.addEventListener("submit", (e) => {
+            e.preventDefault()
+            fetch("/reserve", {
+                method: "POST",
+                body: JSON.stringify({
+                    id: id,
+                    seats: seats.value,
+                    date: date.value,
+                    time: time.value,
+                    type: type.value
+
+
+                }),
+                headers: {
+                    "Content-Type": "application/json",
+                  },
+
+            }).then(res => res.json())
+              .then(data => console.log(data));
+        })
+
+
+    </script>
+
+</body>
+
+</html>
