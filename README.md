@@ -6,6 +6,8 @@ Customers can reserve table and cancel their reservations.
 Admins can add, update, get and delete tables using REST APIs. Additionally, they are able to see reservations by date and can delete reservations when the customer leaves the restaurant.
 
 Database used: MongoDB
+ADMIN USERNAME: "admin"
+ADMIN PASSWORD: "tablereserve"
 
 # Zeamanuel Admasu  UGR-8908-14
 # Fikreyohanes Abera  UGR-8889-14
